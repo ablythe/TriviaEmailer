@@ -7,13 +7,12 @@ class TwitterApi
     config.access_token_secret = ENV["twitter_access_token_secret"]
   end
   
-  def self.get_data
-    response = CLIENT.user_timeline("TriviaKings") 
+  def self.get_data user
+    response = CLIENT.user_timeline(user) 
     response.map {|tweet| tweet.text}
   end
 
-  def self.include_term? term 
-    messages = get_data
+  def self.include_term? messages, term 
     messages.select {|m| m.include?(term)}
   end
 end

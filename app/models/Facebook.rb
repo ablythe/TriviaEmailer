@@ -9,7 +9,7 @@ class Facebook
     response["data"].first(3).map {|p| p["message"]}
   end
 
-  def self.include_term term
+  def self.include_term? term
     messages = get_data
     messages.select {|m| m.include?(term)}
   end

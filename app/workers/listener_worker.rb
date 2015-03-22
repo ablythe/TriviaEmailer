@@ -1,8 +1,13 @@
 class ListenerWorker
 
   include Sidekiq::Worker 
+  include Sidetiq::Schedulable
 
-  def self.perform
+  recurrence do
+    minutely(5).hour_of_day(13,14,15,16,17,18).day(:wednesday)
+  end
+
+  def perform
     unless Week.completed?
       data = Week.both_found?
       if data

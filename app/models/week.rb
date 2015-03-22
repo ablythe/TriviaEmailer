@@ -29,7 +29,7 @@ class Week < ActiveRecord::Base
   end
 
   def self.completed?
-    Week.find_by("created_at >?", 1.days.ago)
+    Week.where(["created_at >?", 1.days.ago]) != []
   end
 
 end

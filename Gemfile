@@ -49,6 +49,7 @@ gem 'httparty'
 gem 'twitter'
 gem 'sidekiq'
 gem 'sidetiq'
+gem 'redis-rails'
 group :development, :test do
   gem 'better_errors'
   gem 'binding_of_caller'
@@ -56,6 +57,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'quiet_assets'
   gem 'factory_girl_rails'
+  gem "letter_opener"
 end
 
 group :test do

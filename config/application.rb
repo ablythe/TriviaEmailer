@@ -6,6 +6,7 @@ require 'rails/all'
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
+
 module TriviaEmailer
   class Application < Rails::Application
     config.action_mailer.default_url_options = { host: "localhost", port: 3000 }
@@ -23,12 +24,8 @@ module TriviaEmailer
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
-
-    client = Twitter::REST::Client.new do |config|
-        config.consumer_key        = ENV["twitter_consumer_key"]
-        config.consumer_secret     = ENV["twitter_consumer_secret"]
-        config.access_token        = ENV["twitter_access_token"]
-        config.access_token_secret = ENV["twitter_access_token_secret"]
-    end
+    config.cache_store = :redis_store, 'redis://localhost:6379/0/cache', { expires_in: 90.minutes }
 end
+
+
 end

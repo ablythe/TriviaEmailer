@@ -9,10 +9,11 @@ class TwitterApi
   
   def self.get_data user
     response = CLIENT.user_timeline(user) 
-    response.map {|tweet| tweet.text}
+    response.first(5).map {|tweet| tweet.text}
   end
 
   def self.include_term? messages, term 
+    binding.pry
     messages.select {|m| m.include?(term)}
   end
 end

@@ -10,7 +10,7 @@ class Facebook
 
   def self.get_data
     response =get("/TriviaKings/posts?#{TOKEN}")
-    response["data"].first(3).map {|p| p["message"]}
+    response["data"].first(2).map {|p| p["message"]}
   end
 
   def self.include_term? messages, term

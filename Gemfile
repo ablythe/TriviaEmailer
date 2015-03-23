@@ -50,6 +50,7 @@ gem 'twitter'
 gem 'sidekiq'
 gem 'sidetiq'
 gem 'redis-rails'
+gem 'redis'
 group :development, :test do
   gem 'better_errors'
   gem 'binding_of_caller'

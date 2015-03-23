@@ -5,7 +5,7 @@ class Facebook
 
   base_uri 'https://graph.facebook.com'
 
-  TOKEN = get("/oauth/access_token?client_id=#{ENV['facebook_id']}&client_secret=#{ENV['facebook_secret']}&grant_type=client_credentials")
+  TOKEN = get("/oauth/access_token?client_id=#{ENV['FACEBOOK_ID']}&client_secret=#{ENV['FACEBOOK_SECRET']}&grant_type=client_credentials")
 
 
   def self.get_data

@@ -12,7 +12,7 @@ class ListenerWorker
       data = Week.both_found?
       if data
         package = Week.parse_data data
-        TriviaMailer.weds_email(package).deliver_later
+        TriviaMailer.weds_email(package).deliver_now
         Week.create data: package
       end
     end

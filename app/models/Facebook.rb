@@ -9,7 +9,7 @@ class Facebook
 
 
   def self.get_data
-    response =get("/TriviaKings/posts?#{TOKEN.as_json}")
+    response =get("/TriviaKings/posts?", query: {access_token: TOKEN.as_json.split('=')[1]})
     response["data"].first(2).map {|p| p["message"]}
   end
 

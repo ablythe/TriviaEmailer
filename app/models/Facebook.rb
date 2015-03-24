@@ -9,7 +9,7 @@ class Facebook
 
 
   def self.get_data
-    response =get("/TriviaKings/posts?#{TOKEN}")
+    response =get("/TriviaKings/posts?#{TOKEN.parsed_response}")
     response["data"].first(2).map {|p| p["message"]}
   end
 

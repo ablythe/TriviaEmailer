@@ -1,28 +1,13 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Bakground worker process for checking TriviaKings facebook and Twitter feeds for questions of the day and round clues on a certain day of the week. 
 
-Things you may want to cover:
+Uses Sidekiq and Sidetig to automate the task, checking every 5 minutes from 1 to 6 pm on the assigned day. 
 
-* Ruby version
+Designed to be deployed to heroku with the mandrill and redistogo addons. 
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Uses a Weeks table to check whether the questions have been found for that week and prevents email from being sent more than once.
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+
+

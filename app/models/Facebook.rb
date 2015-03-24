@@ -9,9 +9,8 @@ class Facebook
 
 
   def self.get_data
-    puts "test"
-    # response =get("/TriviaKings/posts?#{TOKEN.parsed_response}")
-    # response["data"].first(2).map {|p| p["message"]}
+    response =get("/TriviaKings/posts?#{TOKEN.as_json}")
+    response["data"].first(2).map {|p| p["message"]}
   end
 
   def self.include_term? messages, term

@@ -1,5 +1,5 @@
 class Week < ActiveRecord::Base
-  TERM = "Wednesday's #QOTD"
+  TERM = "Tuesday's #QOTD"
   USER = "TriviaKings"
 
   def self.get_twitter 

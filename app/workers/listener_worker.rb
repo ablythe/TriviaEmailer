@@ -4,7 +4,7 @@ class ListenerWorker
   include Sidetiq::Schedulable
 
   recurrence do
-    minutely(5).hour_of_day(13,14,15,16,17,18).day(:wednesday)
+    minutely(5).hour_of_day(13,14,15,16,17,18).day(:tuesday)
   end
 
   def perform

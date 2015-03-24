@@ -1,15 +1,14 @@
 class Week < ActiveRecord::Base
-  TERM = "Tuesday's #QOTD"
   USER = "TriviaKings"
 
   def self.get_twitter 
     messages = TwitterApi.get_data USER
-    TwitterApi.include_term? messages, TERM
+    TwitterApi.include_term? messages
   end
 
   def self.get_facebook
     messages = Facebook.get_data
-    Facebook.include_term? messages, TERM
+    Facebook.include_term? messages
   end
 
   def self.both_found?

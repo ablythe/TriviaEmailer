@@ -13,7 +13,7 @@ class Facebook
     response["data"].first(2).map {|p| p["message"] != nil ? p["message"] : ""}
   end
 
-  def self.include_term? messages, term
+  def self.include_term? messages
     messages.select {|m| m[/Tuesday.*QOTD/]}
   end
 

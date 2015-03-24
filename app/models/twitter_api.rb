@@ -12,7 +12,7 @@ class TwitterApi
     response.first(5).map {|tweet| tweet.text}
   end
 
-  def self.include_term? messages, term 
-    messages.select {|m| m.include?(term)}
+  def self.include_term? messages
+    messages.select {|m| m[/Tuesday.*QOTD/]}
   end
 end

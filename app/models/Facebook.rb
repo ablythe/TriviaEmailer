@@ -14,7 +14,7 @@ class Facebook
   end
 
   def self.include_term? messages
-    messages.select {|m| m[/Tuesday.*QOTD/]}
+    messages.select {|m| m[/Wednesday.*QOTD/]}
   end
 
 

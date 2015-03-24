@@ -13,7 +13,6 @@ class TwitterApi
   end
 
   def self.include_term? messages, term 
-    binding.pry
     messages.select {|m| m.include?(term)}
   end
 end

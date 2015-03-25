@@ -14,6 +14,5 @@ class TwitterApi
 
   def self.include_term? messages
     weds_messages= messages.select {|m| m[/Wednesday.*QOTD/]}
-    weds_messages[0]
   end
 end

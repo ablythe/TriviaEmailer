@@ -2,11 +2,13 @@
 
 Bakground worker process for checking TriviaKings facebook and Twitter feeds for questions of the day and round clues on a certain day of the week. 
 
+Once the data has been found, the app parses it into an email message which is then sent out to Trivia team members.
+
 Uses Sidekiq and Sidetig to automate the task, checking every 5 minutes from 1 to 6 pm on the assigned day. 
 
 Designed to be deployed to heroku with the mandrill and redistogo addons. 
 
-Uses a Weeks table to check whether the questions have been found for that week and prevents email from being sent more than once.
+Uses a Weeks database to check whether the questions have been found for that week and prevents email from being sent more than once.
 
 
 

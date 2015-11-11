@@ -9,13 +9,8 @@ class Facebook
 
 
   def self.get_data
-    response =get("/TriviaKings/posts?", query: {access_token: TOKEN.as_json.split('=')[1]})
-    response["data"].first(2).map {|p| p["message"] != nil ? p["message"] : ""}
+    response = get("/TriviaKings/posts?", query: {access_token: TOKEN.as_json.split('=')[1]})
+    FacebookMessages.new response["data"].first(2).map {|p| p['message']}
   end
-
-  def self.include_term? messages
-    messages.select {|m| m[/Wednesday.*QOTD/]}
-  end
-
 
 end

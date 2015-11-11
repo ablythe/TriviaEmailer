@@ -4,17 +4,15 @@ class ListenerWorker
   include Sidetiq::Schedulable
 
   recurrence do
-    minutely(5).hour_of_day(17,18,19,20,21,22).day(:wednesday)
+    minutely(5).hour_of_day(13,14,15,16,17,18,19,20,21).day(:wednesday)
   end
 
   def perform
-    unless Week.completed?
-      data = Week.both_found?
-      if data
-        package = Week.parse_data data
-        Week.create data: package
-        TriviaMailer.weds_email(package).deliver_now
-      end
+    return if Week.completed?
+    if Week.both_found?
+      package = Week.parse_data data
+      Week.create data: package
+      TriviaMailer.weds_email(package).deliver_now
     end
   end
 

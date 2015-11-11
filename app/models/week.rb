@@ -3,19 +3,19 @@ class Week < ActiveRecord::Base
 
   def self.get_twitter 
     messages = TwitterApi.get_data USER
-    TwitterApi.include_term? messages
+    messages.include_term? 
   end
 
   def self.get_facebook
     messages = Facebook.get_data
-    Facebook.include_term? messages
+    messages.include_term? 
   end
 
   def self.both_found?
-    t_data =get_twitter
-    f_data =get_facebook
-    unless t_data.empty? || f_data.empty?
-      data ={twitter: t_data[0], facebook:f_data[0]}
+    t_data = get_twitter
+    f_data = get_facebook
+    unless t_data.nil? || f_data.nil?
+      data = { twitter: t_data, facebook:f_data }
     end
   end
 

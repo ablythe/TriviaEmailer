@@ -7,6 +7,6 @@ class FacebookMessages
   end
 
   def include_term?
-    messages.find {|m| m.include?("Wednesday's QOTD")}
+    messages.find {|m| m.include?("Wednesday's #QOTD")}
   end
 end
